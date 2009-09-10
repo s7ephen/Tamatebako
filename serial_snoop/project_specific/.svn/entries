@@ -1,0 +1,53 @@
+8
+
+dir
+1911
+svn+ssh://stephen@svn.matasano.com/home/svn/toolshed/users/stephen/projects/serial_snoop_sanitized_for_release/project_specific
+svn+ssh://stephen@svn.matasano.com/home/svn/toolshed
+
+
+
+2008-10-10T16:42:23.366567Z
+1217
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9a33c352-ce92-11dc-bc44-bccd0f6a4971
+
+crc16.py
+file
+
+
+
+
+2009-05-22T18:06:35.000000Z
+0a682ab051b55790582e4f1598e6afcb
+2008-10-10T16:42:23.366567Z
+1217
+stephen
+has-props
+
+__init__.py
+file
+
+
+
+
+2009-05-22T18:06:35.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-10-10T16:42:23.366567Z
+1217
+stephen
+

@@ -1,0 +1,54 @@
+8
+
+dir
+1911
+svn+ssh://stephen@svn.matasano.com/home/svn/toolshed/users/stephen/misc_util/file_scraper.py
+svn+ssh://stephen@svn.matasano.com/home/svn/toolshed
+
+
+
+2008-08-13T19:05:00.178023Z
+1081
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9a33c352-ce92-11dc-bc44-bccd0f6a4971
+
+pygoogle-0.6.tar.gz
+file
+
+
+
+
+2009-05-22T18:06:15.000000Z
+334e2d9e5a765ffa9769e2c4cdfcd110
+2008-08-13T19:05:00.178023Z
+1081
+stephen
+has-props
+
+fscraper.py
+file
+
+
+
+
+2009-05-22T18:06:15.000000Z
+ac282134938273439d8342880135006a
+2008-08-13T19:05:00.178023Z
+1081
+stephen
+has-props
+
