@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.4
+#!/usr/bin/env python2.5
 """
     Trying to extend HTTPServer to accept and make use
     of an external object.
@@ -40,9 +40,10 @@ class MyHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'text/html; charset="us-ascii"')
         self.end_headers()
-        self.wfile.write("<html><body><br/>My favorite color is:<br/>")
-        self.wfile.write(self.server.ref.get_text())
-        self.wfile.write("</body></html>")
+        f_h = open("./test.html")
+        fdata = f_h.read()
+        print "Printing the length: ", len(fdata),"\n", fdata
+        self.wfile.write(fdata)
 
 if __name__ == '__main__':
     tgen = TextGenerator()
