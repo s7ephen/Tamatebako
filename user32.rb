@@ -25,7 +25,7 @@
 #--
 #   ATTENTION ALL YE HIGH-AND-MIGHTY RUBY STYLE CRITICS:
 #   Let me put this in the language you love so much:
-#       if the_code.does_it_work?: You::shut_the_fuck_up() end
+#       if the_code.does_it_work?: You::stfu() end
 #++
 #   NOTE TO MYSELF
 #       You cant EnableWindow/SendMessage/SetWindowLong(style) on a button
