@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 # == User32.rb
 #       PoC for how to interface with the User32 subsystem on windows
-#       aka: Control windows and stuff.
+#       aka: Control windows and stuff, simulate keyboard/mouse.
+#       This is particularly useful for app pentesting because you can use this
+#       to "enable" disabled menus/buttons etc.
 #       This will demonstrate rudimentary window messaging via the user32 API
-#       to control Calc.exe into doing stuff..
+#       to control Calc.exe
 #       
 # == Author
 #   Stephen A. Ridley
@@ -13,19 +15,25 @@
 # 
 #       Use Winspector Pro (a free download)
 #       to observe messages being sent to your windowobject
-#       
+#           http://www.windows-spy.com/       
 #       Also use MSDN and the #defines winuser.h to get the numeric
-#       values of some of the SendMessage message opcodes.
-#       
+#       values of some of the SendMessage message opcodes. EG:
+#            http://msdn.microsoft.com/en-us/library/ms646280(VS.85).aspx
 #       I have included a part of some sample C code from an old (now defunct, cuz someone
 #       burned me) private remote Yahoo messenger exploit I've been sitting on. 
 #       It is in the DATA block.
-#           
-# --
-#   ATTENTION ALL YOU HIGH AND MIGHTY RUBY STYLE CRITICS:
+#--
+#   ATTENTION ALL YE HIGH-AND-MIGHTY RUBY STYLE CRITICS:
 #   Let me put this in the language you love so much:
 #       if the_code.does_it_work?: You::shut_the_fuck_up() end
-# ++
+#++
+#   NOTE TO MYSELF
+#       You cant EnableWindow/SendMessage/SetWindowLong(style) on a button
+#       object that has a windowhook/proc defined. This is why when you
+#       "re-enable" a disabled button it still remains unclickable. To make this
+#       work you need to OpenProcess() and physically modify memory. There might
+#       also be a way to do this with "SetWindowsHookEx()". I will have to look
+#       into how does this.
 
 require 'Win32API'
 require 'irb'
@@ -65,13 +73,8 @@ def click_button(sm, button)
   sm.call(button,0x202,0,0x000A0021)
 end
 
-def type_something(sm, control)
-    
-end
-    
 # Open our backpack...
 #   Made with: puts [File::open("winuser_test.cpp.gz").read()].pack('u')
-#   
 def displayC()
     stuff = DATA.read()
     thingz = stuff.unpack('u')
@@ -84,7 +87,7 @@ end
 options={}
 options[:e] = false
 opts = OptionParser.new()
-opts.on("-h", "--help", "You're looking at it."){puts opts.to_s}
+opts.on("-h", "--help", "You're looking at it."){puts opts.to_s;Kernel.exit(0)}
 opts.on("-e", "--extract", "Display a C example of user32 interaction."){|blah| options[:e] = true}
 opts.parse(ARGV) rescue puts opts.to_s
 if options[:e] then
@@ -105,6 +108,20 @@ sleep(2)
 puts("Finding Calculator window...")
 calculator = FindWindowEx.call(0,0,"SciCalc",0)
 #edit_area = FindWindowEx.call(notepad,0,0,"Edit")
+#calc_win = FindWindowEx.call(0,0,0,"Calculator")
+#= FindWindowEx.call(anchor,0,0,"&Cancel")
+#ok = FindWindowEx.call(anchor,0,0,"&OK")
+#password = FindWindowEx.call(0,0,0,"&Password:")
+#= GetWindowLong.call(GWL_STYLE)
+#cancel_style |= WS_DISABLED #If the window style does not have WS_DISABLED, this sets it.
+#SetWindowLong.call(cancel, GWL_STYLE, cancel_style) 
+ 
+#EnableWindow(cancel, 0) #This makes the button unclickable but not greyed out.
+#EnableWindow(cancel,1) #This makes the button clickable again, but doesnt change color.
+ 
+#ok_style = GetWindowLong.call(ok,  GWL_STYLE)
+#ok_style &= ~WS_DISABLED #If the window style has WM_DISABLED this unsets this style.
+#SetWindowLong.call(ok, GWL_STYLE, ok_style)
 one = FindWindowEx.call(calculator, 0,0,"1")
 five = FindWindowEx.call(calculator, 0,0,"5")
 six = FindWindowEx.call(calculator, 0,0,"6")
@@ -113,6 +130,8 @@ two = FindWindowEx.call(calculator, 0,0,"2")
 times = FindWindowEx.call(calculator, 0,0,"*")
 plus = FindWindowEx.call(calculator, 0,0,"+")
 equal = FindWindowEx.call(calculator, 0,0,"=")
+c = FindWindowEx.call(calculator, 0,0,"C")
+ce = FindWindowEx.call(calculator, 0,0,"CE")
 
 click_button(SendMessage, one)
 sleep(1)
@@ -133,22 +152,15 @@ sleep(1)
 click_button(SendMessage, one)
 sleep(1)
 click_button(SendMessage, equal)
-
-#calc_win = FindWindowEx.call(0,0,0,"Calculator")
-#= FindWindowEx.call(anchor,0,0,"&Cancel")
-#ok = FindWindowEx.call(anchor,0,0,"&OK")
-#password = FindWindowEx.call(0,0,0,"&Password:")
-#= GetWindowLong.call(GWL_STYLE)
-#cancel_style |= WS_DISABLED #If the window style does not have WS_DISABLED, this sets it.
-#SetWindowLong.call(cancel, GWL_STYLE, cancel_style) 
- 
-#EnableWindow(cancel, 0) #This makes the button unclickable but not greyed out.
-#EnableWindow(cancel,1) #This makes the button clickable again, but doesnt change color.
- 
-#ok_style = GetWindowLong.call(ok,  GWL_STYLE)
-#ok_style &= ~WS_DISABLED #If the window style has WM_DISABLED this unsets this style.
-#SetWindowLong.call(ok, GWL_STYLE, ok_style)
-
+EnableWindow.call(c, 0)
+EnableWindow.call(ce, 0)
+puts "Try to click the 'C' or 'CE' buttons..."
+sleep(5)
+puts "Ok hit <ENTER> to continue.";gets()
+EnableWindow.call(c, 1)
+EnableWindow.call(ce, 1)
+puts "ok you get the idea...quitting."
+Kernel.exit(0)
 __END__
 M'XL("(`0YTH``W=I;G5S97)?=&5S="YC<'``G5C]4QI)&OY9J_P?WI#*!5P$
 MS6XV=7I)"@$CM0B6C,OMQ90USC1,G\,T.]TCNJG\[_N\W3,PH%Y2ARF=:=[O
