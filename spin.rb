@@ -4,7 +4,7 @@ def spin
     #Jeez Ruby, there *has* to be a better way to trap Ctrl-C
     #keyboard interrupts.
     bail = false
-    trap("INT") {bail = true}
+    trap("INT") {puts "\n\nok. bye!";exit}
     puts "" 
     while true do
         print("|")
@@ -36,4 +36,3 @@ def spin
 end
 puts "CTRL-C to exit."
 spin() 
-puts "\n\nok. bye!"
