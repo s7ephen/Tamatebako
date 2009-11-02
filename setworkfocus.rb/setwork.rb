@@ -7,6 +7,17 @@
 #   this directory when bash starts. This way you can "bookmark" directories
 #   and remember where it is you were working last. This is particularly useful
 #   when developing deep in file shares and SVN/GIT checkouts with large paths.
+#   For example, my login looks like this:
+#
+#   Last login: Mon Nov  2 17:17:18 on ttys005
+#   You have mail.
+#   
+#   *********WORK FOCUS********
+#   /data/CHECKOUTS/github/
+#   *****************************
+#   
+#   navi-two:github s7ephen$ 
+
 #      
 # == Author
 #   Stephen A. Ridley
