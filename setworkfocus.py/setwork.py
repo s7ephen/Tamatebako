@@ -23,7 +23,6 @@ try:
                 for l in lines:
                     bashrc_h.write(l)
                 bashrc_h.close()
-                #os.putenv("WORKFOCUS", cwd)
             else:
                 print "Found \"export\" but no \"WORKFOCUS\" on line #%d." % (i)
         i += 1
