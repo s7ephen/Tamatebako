@@ -75,6 +75,8 @@ class RegUI < Cmd
     doc(:ls, "List current 'branch' of registry, or specify a path to list.")
     doc(:sfs, "Find all Safe-For-Scripting ActiveX modules.")
     doc(:activex, "Find all ActiveX modules registered.")
+    doc(:c2p, "Get the ProgID of a CLSID.")
+    doc(:p2c, "Get the CLSID of a ProgiD.")
     doc(:checksfs, "Check if an CLSID is marked Safe-For-Scripting.")
     doc(:hkeys, "Display the Predefined HKEY values supported.")
     doc(:cd, "Set the path to work in.\n\t eg: HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes")
@@ -129,7 +131,7 @@ class RegUI < Cmd
         if args[0] == nil then RegistryInterface.list(@root)
         else RegistryInterface.list(args[0]) end
     end
-  
+
     protected 
     def command_missing(command, args)
     end
