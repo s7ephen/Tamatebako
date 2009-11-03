@@ -85,7 +85,7 @@ def bindiff(file1, file2, tol)
     while i <= small
         if f1[i] != f2[i] then 
             tol_count+=1
-            if tol_count > tol then puts "Files begin to differ at offset 0x#{i.to_s(16)}" end
+            if tol_count >= tol then puts "Files begin to differ at offset 0x#{i.to_s(16)}" end
         end
         i+=1
     end
@@ -111,7 +111,7 @@ opts.on("-h", "--help", "You're looking at it."){puts opts.to_s;Kernel.exit(0)}
 opts.on("-1", "--file1 file1", "First file to compare."){|val| options[:file1] = val}
 opts.on("-2", "--file2 file2", "Second file to compare.") {|val| options[:file2] = val}
 opts.on("-t", "--tol [tol]", "Number of occurrences to ignore.") do |val| 
-    if val.nil? then options[:tol] = 0 else options[:tol] = val.to_i() end
+    if val.nil? then options[:tol] = 0 else options[:tol] = val end
 end
 opts.parse(ARGV) rescue puts opts.to_s
 #need to learn how OptionParser does this the "right" way.
