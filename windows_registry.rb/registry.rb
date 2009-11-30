@@ -39,7 +39,6 @@ module IRB
 end 
 
 module RegistryInterface 
-
     # Search the registry for specific values.
     def self.search(regpath, search_val)
         r_h = Win32::Registry.open_full_path(regpath)
@@ -99,6 +98,7 @@ class RegUI < Cmd
 #        else
 #            puts "They hkey is not supported, use 'hkeys' command to get a list."
 #        end
+        if arg.length() < 1 then return end
         @root = arg[0]
         if arg[0].length > 30 then truncroot = arg[0][0..30]+"..."
         else truncroot = arg[0] end
@@ -138,5 +138,5 @@ class RegUI < Cmd
 end
 a = RegUI.new()
 #a.run()
-a.cmdloop("\n..ooOO Ruby Registry Tool OOOooo...\n")
+a.cmdloop("\n..ooOO Ruby Windows Registry Tool OOOooo...\n")
 
