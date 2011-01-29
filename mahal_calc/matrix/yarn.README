@@ -1,0 +1,37 @@
+yarn - Yet Another Rational Number module
+
+"Why", you may ask, "is someone coding Yet Another Rational
+Number module?"  (Good choice of names, eh?)  Well I'll tell
+you why.  Because I felt like it...  and also because a complete
+rational number module does not exist.  Rat.py doesn't handle
+float approximation and surd.py doesn't implement all special
+methods (as well as having some minor bugs)
+
+Yarn's highlights (See Rat.__doc__ for details):
+	1) Complete implementation of Rats as numbers.
+	   Every special method that makes sense has been
+	   implemented.  Those that don't make sense raise
+	   the same exceptions that numbers do.
+
+	2) Displays Rats as ratios or fractions.
+	   Why is this useful?  Would you rather see 139/8
+	   or 17+3/8?  Well you can choose either.
+
+	3) Initialization from ints, longs, floats, ratios,
+	   and fractions.
+
+	4) Float approximation by continuing fractions to
+	   user defined precision.
+
+Files:
+	yarn.README	This file.
+	yarn.py		Implements class Rat.
+	yarn.tests.py	Runs tests (including those from Rat.py
+			and surd.py) to insure correctness.
+
+Documentation can be found in yarn.__doc__ and yarn.Rat.__doc__.
+
+Hope someone finds this useful.
+
+  -ljr
+  Lanny Ripple <lanny@stat.tamu.edu>

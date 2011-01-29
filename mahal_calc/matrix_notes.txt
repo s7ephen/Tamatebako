@@ -1,0 +1,21 @@
+>>> import matrix
+>>> a = matrix.matrix([[1,2,0],[3,5,4],[5,6,3]])
+>>> dir(a)
+['__add__', '__cmp__', '__doc__', '__getitem__', '__init__', '__module__', '__mul__', '__neg__', '__repr__', '__setitem__', '__sub__', '_square_check', 'copy', 'determinant', 'get', 'inverse', 'iterate', 'map', 'minor', 'scalar_multiply', 'set', 'singular', 'size', 'square', 'symmetric', 'transpose', 'v']
+>>> a.size()
+(3, 3)
+>>> print(a)
+<matrix
+ 1 2 0
+ 3 5 4
+ 5 6 3>
+>>> repr(a)
+'<matrix\n 1 2 0\n 3 5 4\n 5 6 3>'
+>>> a.determinant()
+13
+>>> a.inverse()
+<matrix
+ -9/13 -6/13  8/13
+ 11/13  3/13 -4/13
+ -7/13  4/13 -1/13>
+>>>
