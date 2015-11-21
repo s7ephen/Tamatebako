@@ -1,8 +1,8 @@
-#!/usr/bin/python2.5
+#!/usr/bin/env python
 # FALLOUT 3 Terminal hacker assistant
 # stephen@sa7ori.org
 
-#NOTE: python 3.1 is gay
+#NOTE: python 3.1 is dumb
 #navi-two:~ s7ephen$ cat test.py 
 #a = [1,2,3]
 #for num in a:
