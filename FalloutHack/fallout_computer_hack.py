@@ -32,7 +32,7 @@ import pprint as pp
 
 def count_letters(word, wordlist, trycount):
     """ Figure out the new subset of words based on the words entered. """
-    print "\n",word," and the following words have letters in the same placement"
+    print("\n",word," and the following words have letters in the same placement")
     wordlen = len(word)
     filtered = []
     for w in wordlist:
@@ -44,20 +44,22 @@ def count_letters(word, wordlist, trycount):
             filtered.append(w) 
     return filtered
 
-print """
+a = """
 
     ...oooOOO Welcome to the Fallout 3 Terminal Hacker OOOooo...
 
 """
-print """Enter words in the wordlist. 
+print(a)
+a = """Enter words in the wordlist. 
 You can enter the words all at once as CSV (nospaces after comma) or one at a time.
 If you enter them one at a time, press CTRL-C when done."""
+print(a)
 wordlist = []
 i = 0
 try:
     while True:
         prompt = "Word (or wordlist)? "+str(i)+"> "
-        tmp = raw_input(prompt)
+        tmp = input(prompt)
         if tmp.__contains__(","):
             wordlist = str.split(tmp,',')
             break
@@ -70,33 +72,33 @@ for word in wordlist:
     if len(word) != len(wordlist[0]):
         
         csv_courtesy = ""
-        print "THERE IS SOMETHING WRONG at ",word," ALL WORDS SHOULD BE OF SAME LENGTH!"
+        print("THERE IS SOMETHING WRONG at ",word," ALL WORDS SHOULD BE OF SAME LENGTH!")
         for word in wordlist:
             csv_courtesy+=word
             csv_courtesy+=","
-        print "Here is your wordlist (cut-and-paste) to reuse. \n*** "
-        print csv_courtesy[:len(csv_courtesy)-1] # chop off the last comma
-        print "\n***\nExiting."
+        print("Here is your wordlist (cut-and-paste) to reuse. \n*** ")
+        print(csv_courtesy[:len(csv_courtesy)-1]) # chop off the last comma
+        print("\n***\nExiting.")
         sys.exit(1)
 
-print "\nNow try a word in the game. Which one did you try?"
+print("\nNow try a word in the game. Which one did you try?")
 for i in range(len(wordlist)):
-    print "\t",i,". ", wordlist[i]
-num=raw_input("num of word?> ")
+    print("\t",i,". ", wordlist[i])
+num=input("num of word?> ")
 num = int(num)
-print "How many of ",len(wordlist[num])," did it say matched? ",
-try1 = raw_input("?> ")
+print("How many of ",len(wordlist[num])," did it say matched? ",)
+try1 = input("?> ")
 try1 = int(try1)
-print "Ok, of those these are the possible words.\nTry one of these in the game..."
+print("Ok, of those these are the possible words.\nTry one of these in the game...")
 newlist = count_letters(wordlist[num],wordlist,try1)
 for i in range(len(newlist)):
-    print "\t",i,". ", newlist[i]
-num = raw_input("Enter the number of the one you tried. ")
+    print("\t",i,". ", newlist[i])
+num = input("Enter the number of the one you tried. ")
 num = int(num)
-print "How many of ",len(newlist[num])," did it say matched? ",
-try2 = raw_input("?> ")
+print("How many of ",len(newlist[num])," did it say matched? ",)
+try2 = input("?> ")
 try2 = int(try2)
 lastlist = count_letters(newlist[num],newlist,try2)
-print "It should be one of the following words"
+print("It should be one of the following words")
 pp.pprint(lastlist)
 
