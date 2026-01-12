@@ -5,10 +5,10 @@ This Fallout Terminal Hacker was originally written in Python, but there are now
 
 |OS | File | 
 |-|-|
-|Windows| [fallout_computer_hack.exe](dist/fallout_computer_hack) [raw dl](https://raw.githubusercontent.com/s7ephen/Tamatebako/refs/heads/master/FalloutHack/fallout_computer_hack) |
-|Mac OSX 64bit (Intel)| [fallout_computer_hack](dist/fallout_computer_hack.exe)  [raw dl](https://raw.githubusercontent.com/s7ephen/Tamatebako/refs/heads/master/FalloutHack/fallout_computer_hack.exe)|
-|Mac OSX (ARM) | Phone CPUs in Pyewters!? HERESY! Jesus weeps. |
+|Windows| [fallout_computer_hack.exe](dist/fallout_computer_hack) [(direct dl)](https://github.com/s7ephen/Tamatebako/raw/refs/heads/master/FalloutHack/dist/fallout_computer_hack) |
+|Mac OSX 64bit (Intel)| [fallout_computer_hack](dist/fallout_computer_hack.exe)  [(direct dl)](https://github.com/s7ephen/Tamatebako/raw/refs/heads/master/FalloutHack/dist/fallout_computer_hack.exe)|
 |Linux| dawg if you're on linux, you can easily [run the.py](fallout_computer_hack.py) lol|
+|Mac OSX (ARM) | Phone CPUs inside Pyewters!? It's unnatural. HERESY! Jesus wept. |
 
 # Background info:
 Anyway the Fallout 3 Terminal In-Game thing works like this:
@@ -20,7 +20,7 @@ This fallout hacker will guarantee you find the solution in 3 or less tries.
 
 https://fallout.fandom.com/wiki/Hacking_(Fallout_4)
 
-![Terminal Hack](./wiki_assets/fallout_animated_giphy.webp)
+![Terminal Hack](readme_assets/fallout_animated_giphy.webp)
 
 # Using it
 Here is how to use this fallout hacker.
