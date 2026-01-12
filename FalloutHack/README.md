@@ -29,6 +29,7 @@ Here is how to use this fallout hacker.
 2. You run the fallout hacker and input the words individually, or all-at-once as a comma-separated entry ![using_it_cmd.png](readme_assets/using_it_cmd.png)
 
 [FalloutTerminalHack_faster.mp4](readme_assets/FalloutTerminalHack_faster.mp4)
+
 ![FalloutTerminalHack_faster.gif](readme_assets/FalloutTerminalHack_faster.gif) 
 
 Works the same on OSX:
